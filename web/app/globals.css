@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #101828;
+  --ink-muted: #475467;
+  --paper: #f6f5f1;
+  --paper-elevated: #ffffff;
+  --teal: #00a0a8;
+  --teal-deep: #0b3d40;
+  --teal-soft: #ebfeff;
+  --sand: #ebe6da;
+  --line: #e4e1d8;
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --space-section: clamp(5.5rem, 10vw, 9.5rem);
+  --space-block: clamp(2.5rem, 4vw, 4rem);
+  --measure: 42rem;
+  --shell: 72rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-paper: var(--paper);
+  --color-paper-elevated: var(--paper-elevated);
+  --color-teal: var(--teal);
+  --color-teal-deep: var(--teal-deep);
+  --color-teal-soft: var(--teal-soft);
+  --color-sand: var(--sand);
+  --color-line: var(--line);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--teal) 35%, white);
+    color: var(--ink);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+  }
+
+  .site-shell {
+    width: min(100% - 2.5rem, var(--shell));
+    margin-inline: auto;
+  }
+
+  @media (min-width: 640px) {
+    .site-shell {
+      width: min(100% - 4rem, var(--shell));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-shell {
+      width: min(100% - 6rem, var(--shell));
+    }
+  }
+
+  .section-y {
+    padding-block: var(--space-section);
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+  }
+
+  .display-xl {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-size: clamp(3.25rem, 8vw, 6.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  .display-lg {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .display-md {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-size: clamp(2rem, 3.8vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+
+  .lede {
+    max-width: var(--measure);
+    font-size: clamp(1.2rem, 1.6vw, 1.4rem);
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+
+  .prose-section {
+    max-width: var(--measure);
+  }
+
+  .italic-accent {
+    font-style: italic;
+    font-weight: 450;
+  }
+}

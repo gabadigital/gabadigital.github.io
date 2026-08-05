@@ -1,0 +1,102 @@
+[build]
+  base = "web"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Legacy HTML → Next.js App Router (Phase 6 cutover)
+[[redirects]]
+  from = "/index.html"
+  to = "/en"
+  status = 301
+
+[[redirects]]
+  from = "/about.html"
+  to = "/en/about"
+  status = 301
+
+[[redirects]]
+  from = "/services.html"
+  to = "/en/services"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/en/contact"
+  status = 301
+
+[[redirects]]
+  from = "/digital-stories.html"
+  to = "/en/work"
+  status = 301
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/en/work"
+  status = 301
+
+[[redirects]]
+  from = "/blog-pages/*"
+  to = "/en/work"
+  status = 301
+
+[[redirects]]
+  from = "/services/seo.html"
+  to = "/en/services/seo"
+  status = 301
+
+[[redirects]]
+  from = "/services/ui-ux-development.html"
+  to = "/en/services/ui-ux-design"
+  status = 301
+
+[[redirects]]
+  from = "/services/web-application.html"
+  to = "/en/services/web-app-development"
+  status = 301
+
+[[redirects]]
+  from = "/services/mobile-development.html"
+  to = "/en/services/mobile-app-development"
+  status = 301
+
+[[redirects]]
+  from = "/services/ecommerce-development.html"
+  to = "/en/services/ecommerce-development"
+  status = 301
+
+[[redirects]]
+  from = "/services/logo-and-branding.html"
+  to = "/en/services/logo-branding"
+  status = 301
+
+[[redirects]]
+  from = "/services/graphic-design.html"
+  to = "/en/services/graphic-design"
+  status = 301
+
+[[redirects]]
+  from = "/services/copywriting.html"
+  to = "/en/services/copywriting"
+  status = 301
+
+[[redirects]]
+  from = "/services/social-media-management.html"
+  to = "/en/services/social-media-management"
+  status = 301
+
+[[redirects]]
+  from = "/services/online-advertising.html"
+  to = "/en/services/online-advertising"
+  status = 301
+
+[[redirects]]
+  from = "/services/photography-videography.html"
+  to = "/en/services/photography-videography"
+  status = 301
+
+[[redirects]]
+  from = "/index-renew.html"
+  to = "/en"
+  status = 301
