@@ -63,6 +63,18 @@ export type Dictionary = {
     ctaTitleAccent: string;
     ctaLede: string;
     scheduleCall: string;
+    introEyebrow: string;
+    introText: string;
+    ctaConsultLabel: string;
+    ctaConsultCopy: string;
+    ctaCaseStudiesLabel: string;
+  };
+  roadmap: {
+    eyebrow: string;
+    titleBefore: string;
+    titleAccent: string;
+    lede: string;
+    steps: { title: string; copy: string }[];
   };
   about: {
     titleBefore: string;

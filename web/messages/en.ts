@@ -103,6 +103,37 @@ const en: Dictionary = {
     ctaLede:
       "Got a brief, a half-formed idea, or a product that needs to ship? Tell us what you’re building next.",
     scheduleCall: "Schedule a call",
+    introEyebrow: "Short intro",
+    introText:
+      "Gabadigital is a creative product studio focused on building brand systems, scalable products, and culture-first digital experiences for growing businesses across the UAE, Nigeria, and Ghana.",
+    ctaConsultLabel: "Need expert consultancy?",
+    ctaConsultCopy:
+      "Strategy, design, and culture-first digital thinking — for brands that need to move fast and hold up under real traffic.",
+    ctaCaseStudiesLabel: "View case studies?",
+  },
+  roadmap: {
+    eyebrow: "How we work",
+    titleBefore: "From first call to",
+    titleAccent: "shipped product.",
+    lede: "A clear path from brief to launch — four steps, one studio, no surprises along the way.",
+    steps: [
+      {
+        title: "Kick-off call",
+        copy: "A short conversation on the problem, audience, timeline, and any existing brand or product assets. Rough is fine.",
+      },
+      {
+        title: "Discovery",
+        copy: "We research your market and users to shape a strategic, visual, and functional direction before anything gets built.",
+      },
+      {
+        title: "Design & build",
+        copy: "Strategy becomes interface — scoped to what the business actually needs, built to scale past launch day.",
+      },
+      {
+        title: "Launch & grow",
+        copy: "Finished, tested assets shipped for handoff, plus a plan for what comes after — content, growth, iteration.",
+      },
+    ],
   },
   about: {
     titleBefore: "We are Gabadigital.",

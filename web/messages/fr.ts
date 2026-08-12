@@ -104,6 +104,37 @@ const fr: Dictionary = {
     ctaLede:
       "Un brief, une idée à moitié formée, ou un produit à livrer ? Dites-nous ce que vous construisez ensuite.",
     scheduleCall: "Planifier un appel",
+    introEyebrow: "En bref",
+    introText:
+      "Gabadigital est un studio créatif et produit qui construit des systèmes de marque, des produits scalables et des expériences digitales à impact culturel pour des marques en croissance aux Émirats, au Nigeria et au Ghana.",
+    ctaConsultLabel: "Besoin d’un conseil expert ?",
+    ctaConsultCopy:
+      "Stratégie, design et pensée digitale à impact culturel — pour des marques qui doivent avancer vite et tenir face au vrai trafic.",
+    ctaCaseStudiesLabel: "Voir les études de cas ?",
+  },
+  roadmap: {
+    eyebrow: "Comment on travaille",
+    titleBefore: "Du premier appel au",
+    titleAccent: "produit livré.",
+    lede: "Un chemin clair du brief au lancement — quatre étapes, un studio, aucune surprise en cours de route.",
+    steps: [
+      {
+        title: "Appel de lancement",
+        copy: "Une courte conversation sur le problème, l’audience, le calendrier et les éléments de marque ou produit existants. Un brief brut suffit.",
+      },
+      {
+        title: "Découverte",
+        copy: "Nous étudions votre marché et vos utilisateurs pour dessiner une direction stratégique, visuelle et fonctionnelle avant toute construction.",
+      },
+      {
+        title: "Design & construction",
+        copy: "La stratégie devient interface — cadrée sur les besoins réels du business, construite pour tenir après le lancement.",
+      },
+      {
+        title: "Lancement & croissance",
+        copy: "Des livrables finalisés et testés, prêts pour la mise en œuvre, plus un plan pour la suite — contenu, croissance, itération.",
+      },
+    ],
   },
   about: {
     titleBefore: "Nous sommes Gabadigital.",

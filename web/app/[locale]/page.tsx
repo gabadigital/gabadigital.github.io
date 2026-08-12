@@ -1,5 +1,8 @@
 import Image from "next/image";
+import { HomeCta } from "@/components/home/home-cta";
 import { HomeHero } from "@/components/home/home-hero";
+import { IntroReveal } from "@/components/home/intro-reveal";
+import { Roadmap } from "@/components/home/roadmap";
 import { LocaleLink } from "@/components/i18n/locale-link";
 import { UiFrame } from "@/components/media/ui-frame";
 import { Reveal } from "@/components/motion/reveal";
@@ -40,6 +43,8 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <HomeHero locale={locale} dictionary={dictionary} />
+
+      <IntroReveal eyebrow={t.introEyebrow} text={t.introText} />
 
       <section className="site-shell section-y">
         <div className="grid items-end gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
@@ -207,39 +212,15 @@ export default async function HomePage({ params }: Props) {
         </LocaleLink>
       </section>
 
-      <section className="relative overflow-hidden border-t border-[var(--line)]">
-        <div className="absolute inset-0">
-          <Image
-            src="/studio/strategy.webp"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover"
-            aria-hidden
-          />
-          <div className="absolute inset-0 bg-[color-mix(in_srgb,var(--teal-deep)_88%,#041214)]" />
-        </div>
-        <div className="site-shell relative section-y flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-center">
-          <div className="max-w-3xl text-white">
-            <h2 className="display-lg text-white">
-              {t.ctaTitleBefore}{" "}
-              <span className="italic-accent text-[#b8f0f3]">
-                {t.ctaTitleAccent}
-              </span>
-            </h2>
-            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/75">
-              {t.ctaLede}
-            </p>
-          </div>
-          <LocaleLink
-            locale={locale}
-            href="/contact"
-            className="inline-flex cursor-pointer rounded-full bg-white px-8 py-4 text-base font-semibold text-[var(--ink)] transition-colors duration-200 hover:bg-[#ebfeff]"
-          >
-            {t.scheduleCall}
-          </LocaleLink>
-        </div>
-      </section>
+      <Roadmap
+        eyebrow={dictionary.roadmap.eyebrow}
+        titleBefore={dictionary.roadmap.titleBefore}
+        titleAccent={dictionary.roadmap.titleAccent}
+        lede={dictionary.roadmap.lede}
+        steps={dictionary.roadmap.steps}
+      />
+
+      <HomeCta locale={locale} dictionary={dictionary} />
     </>
   );
 }
