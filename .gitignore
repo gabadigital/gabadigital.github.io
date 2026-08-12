@@ -1,0 +1,21 @@
+# Local agent skills — stay on disk, never push
+.agents/
+.cursor/skills/
+.cursor/agents/
+.cursor/hooks.json
+
+# Next.js app
+web/node_modules/
+web/.next/
+web/out/
+web/.env
+web/.env.local
+web/.env*.local
+web/npm-debug.log*
+web/.DS_Store
+web/*.tsbuildinfo
+web/next-env.d.ts
+
+# OS / editor
+.DS_Store
+*.log
