@@ -3,9 +3,11 @@
 import { motion, useTransform, type MotionValue } from "motion/react";
 
 /**
- * Renders words whose opacity/blur ramp from dim to sharp as `progress` (0-1)
- * advances — the scroll-linked text-reveal mechanic from mindraft.framer.ai's
- * "Short intro" section. Callers own the scroll wiring (pinned or in-view).
+ * Renders words whose opacity ramps from dim to fully visible as `progress`
+ * (0-1) advances — the scroll-linked text-reveal mechanic from
+ * mindraft.framer.ai's "Short intro" section. Callers own the scroll wiring
+ * (pinned or in-view) and should pass a progress value that reaches 1 with
+ * room to spare, so the full sentence is readable before the section ends.
  */
 export function RevealWords({
   progress,
@@ -46,15 +48,10 @@ function RevealWord({
 }) {
   const start = index / count;
   const end = Math.min(1, start + 1.2 / count);
-  const opacity = useTransform(progress, [start, end], [0.18, 1]);
-  const blur = useTransform(progress, [start, end], [6, 0]);
-  const filter = useTransform(blur, (value) => `blur(${value}px)`);
+  const opacity = useTransform(progress, [start, end], [0.25, 1]);
 
   return (
-    <motion.span
-      style={{ opacity, filter }}
-      className="mr-[0.28em] inline-block will-change-[opacity,filter]"
-    >
+    <motion.span style={{ opacity }} className="mr-[0.28em] inline-block will-change-[opacity]">
       {word}
     </motion.span>
   );
