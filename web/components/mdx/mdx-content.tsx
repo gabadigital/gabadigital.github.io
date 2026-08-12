@@ -1,6 +1,8 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { Gallery } from "@/components/mdx/gallery";
 
 const components = {
+  Gallery,
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className="mt-12 font-display text-3xl tracking-tight text-[var(--ink)] first:mt-0"
@@ -43,5 +45,11 @@ const components = {
 };
 
 export function MdxContent({ source }: { source: string }) {
-  return <MDXRemote source={source} components={components} />;
+  return (
+    <MDXRemote
+      source={source}
+      components={components}
+      options={{ blockJS: false }}
+    />
+  );
 }
