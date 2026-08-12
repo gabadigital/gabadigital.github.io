@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import Image from "next/image";
+import { CtaButton } from "@/components/header/cta-button";
 import { LocaleLink } from "@/components/i18n/locale-link";
 import { LocaleSwitcher } from "@/components/i18n/locale-switcher";
 import type { Locale } from "@/lib/i18n";
@@ -65,13 +67,20 @@ export function SiteHeader({
         <LocaleLink
           locale={locale}
           href="/"
-          className="font-display text-[1.65rem] tracking-tight text-[var(--ink)] sm:text-3xl"
+          className="flex shrink-0 items-center"
           onClick={() => {
             setOpenPanel(null);
             setMobileOpen(false);
           }}
         >
-          {siteConfig.name}
+          <Image
+            src="/brand/logo.png"
+            alt={siteConfig.name}
+            width={846}
+            height={302}
+            priority
+            className="h-8 w-auto sm:h-9"
+          />
         </LocaleLink>
 
         <nav
@@ -116,13 +125,7 @@ export function SiteHeader({
 
         <div className="hidden items-center gap-3 lg:flex">
           <LocaleSwitcher locale={locale} label={dictionary.nav.language} />
-          <LocaleLink
-            locale={locale}
-            href="/contact"
-            className="inline-flex cursor-pointer items-center rounded-full bg-[var(--teal-deep)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--ink)]"
-          >
-            {dictionary.nav.startProject}
-          </LocaleLink>
+          <CtaButton locale={locale} href="/contact" label={dictionary.nav.startProject} />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
@@ -279,14 +282,13 @@ export function SiteHeader({
               >
                 {dictionary.nav.contact}
               </LocaleLink>
-              <LocaleLink
+              <CtaButton
                 locale={locale}
                 href="/contact"
-                className="mt-2 inline-flex items-center justify-center rounded-full bg-[var(--teal-deep)] px-5 py-3 font-semibold text-white"
+                label={dictionary.nav.startProject}
+                className="mt-2 justify-center"
                 onClick={() => setMobileOpen(false)}
-              >
-                {dictionary.nav.startProject}
-              </LocaleLink>
+              />
             </div>
           </div>
         </div>

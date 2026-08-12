@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { LocaleLink } from "@/components/i18n/locale-link";
 import type { Locale } from "@/lib/i18n";
 import { getPrimaryNav, getServiceNav, siteConfig } from "@/lib/site";
@@ -17,7 +18,13 @@ export function SiteFooter({
     <footer className="mt-auto border-t border-[var(--line)] bg-[var(--teal-deep)] text-white">
       <div className="site-shell grid gap-14 py-20 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-12 md:py-24">
         <div>
-          <p className="font-display text-4xl tracking-tight">{siteConfig.name}</p>
+          <Image
+            src="/brand/logo-light.png"
+            alt={siteConfig.name}
+            width={846}
+            height={302}
+            className="h-9 w-auto"
+          />
           <p className="mt-5 max-w-sm text-lg leading-relaxed text-white/75">
             {dictionary.meta.tagline}
           </p>

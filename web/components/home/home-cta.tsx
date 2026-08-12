@@ -65,7 +65,7 @@ export function HomeCta({ locale, dictionary }: { locale: Locale; dictionary: Di
           <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/75">{t.ctaLede}</p>
         </div>
 
-        <div className="mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
+        <div className="mt-12 grid max-w-3xl items-start gap-4 sm:grid-cols-2">
           <LocaleLink
             locale={locale}
             href="/contact"
@@ -77,7 +77,7 @@ export function HomeCta({ locale, dictionary }: { locale: Locale; dictionary: Di
           <LocaleLink
             locale={locale}
             href="/work"
-            className="group flex cursor-pointer items-center justify-between rounded-2xl border border-white/25 p-6 transition-colors duration-200 hover:border-white/60 hover:bg-white/5"
+            className="group flex cursor-pointer items-center justify-between self-start rounded-2xl border border-white/25 px-6 py-5 transition-colors duration-200 hover:border-white/60 hover:bg-white/5"
           >
             <p className="font-intro text-lg font-medium text-white">{t.ctaCaseStudiesLabel}</p>
             <span
