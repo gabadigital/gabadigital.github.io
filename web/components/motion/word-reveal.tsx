@@ -45,7 +45,7 @@ function RevealWord({
   progress: MotionValue<number>;
 }) {
   const start = index / count;
-  const end = start + 1.2 / count;
+  const end = Math.min(1, start + 1.2 / count);
   const opacity = useTransform(progress, [start, end], [0.18, 1]);
   const blur = useTransform(progress, [start, end], [6, 0]);
   const filter = useTransform(blur, (value) => `blur(${value}px)`);
