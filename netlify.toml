@@ -1,9 +1,20 @@
 [build]
   base = "web"
   command = "npm run build"
+  publish = "web/.next"
 
 [build.environment]
   NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Root → default locale (belt-and-suspenders with Next middleware)
+[[redirects]]
+  from = "/"
+  to = "/en"
+  status = 302
+  force = true
 
 # Legacy HTML → Next.js App Router (Phase 6 cutover)
 [[redirects]]

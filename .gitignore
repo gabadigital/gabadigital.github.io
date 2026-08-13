@@ -19,3 +19,6 @@ web/next-env.d.ts
 # OS / editor
 .DS_Store
 *.log
+
+# Local Netlify folder
+.netlify
