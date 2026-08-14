@@ -16,14 +16,19 @@ export const siteConfig = {
   ],
   locations: [
     {
-      city: "Abu Dhabi",
-      region: "United Arab Emirates",
-      area: "Tourist Centre",
+      city: "Accra",
+      region: "Ghana",
+      area: "Serving West Africa remotely & on-site",
     },
     {
       city: "Lagos",
       region: "Nigeria",
       area: "Serving West Africa remotely & on-site",
+    },
+    {
+      city: "Abu Dhabi",
+      region: "United Arab Emirates",
+      area: "Tourist Centre",
     },
   ],
   social: {
@@ -61,6 +66,7 @@ export const serviceSlugs: ServiceSlug[] = [
 export function getPrimaryNav(dictionary: Dictionary) {
   return [
     { label: dictionary.nav.work, href: "/work" },
+    { label: dictionary.nav.blog, href: "/blog" },
     { label: dictionary.nav.services, href: "/services" },
     { label: dictionary.nav.about, href: "/about" },
     { label: dictionary.nav.contact, href: "/contact" },

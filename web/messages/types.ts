@@ -19,6 +19,7 @@ export type Dictionary = {
   };
   nav: {
     work: string;
+    blog: string;
     services: string;
     about: string;
     contact: string;
@@ -68,6 +69,26 @@ export type Dictionary = {
     ctaConsultLabel: string;
     ctaConsultCopy: string;
     ctaCaseStudiesLabel: string;
+    heroBasedIn: string;
+    learnMore: string;
+    approachLabel: string;
+    messageEyebrow: string;
+    messageTitleBefore: string;
+    messageTitleAccent: string;
+    messageLede: string;
+    messageCta: string;
+    messageFeatures: { title: string; copy: string }[];
+    blogEyebrow: string;
+    blogTitleBefore: string;
+    blogTitleAccent: string;
+    blogLede: string;
+    blogReadMore: string;
+    allArticles: string;
+    faqEyebrow: string;
+    faqTitleBefore: string;
+    faqTitleAccent: string;
+    faqLede: string;
+    faqs: { question: string; answer: string }[];
   };
   roadmap: {
     eyebrow: string;
@@ -91,6 +112,15 @@ export type Dictionary = {
     titleAccent: string;
     lede: string;
     readCaseStudy: string;
+    metaTitle: string;
+    metaDescription: string;
+  };
+  blog: {
+    titleBefore: string;
+    titleAccent: string;
+    lede: string;
+    readMore: string;
+    backToBlog: string;
     metaTitle: string;
     metaDescription: string;
   };
@@ -135,6 +165,13 @@ export type Dictionary = {
     contact: string;
     networks: string;
     rights: string;
+    newsletter: {
+      title: string;
+      lede: string;
+      placeholder: string;
+      submit: string;
+      success: string;
+    };
   };
   notFound: {
     title: string;

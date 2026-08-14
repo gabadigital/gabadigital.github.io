@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ButtonContent, pillTone } from "@/components/ui/swap-button";
 import type { Dictionary } from "@/messages";
 
 type FormLabels = Dictionary["contact"]["form"];
@@ -79,9 +80,12 @@ export function ContactForm({ labels }: { labels: FormLabels }) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-[var(--teal-deep)] px-6 py-3 font-semibold text-white transition hover:bg-[var(--ink)] disabled:opacity-60 sm:w-auto"
+        className={`group inline-flex w-full cursor-pointer items-center justify-center gap-3 rounded-full py-2 pl-6 pr-2 text-base font-semibold transition-colors duration-200 disabled:opacity-60 sm:w-auto ${pillTone.dark}`}
       >
-        {status === "submitting" ? labels.sending : labels.send}
+        <ButtonContent
+          label={status === "submitting" ? labels.sending : labels.send}
+          variant="dark"
+        />
       </button>
 
       {status === "done" ? (

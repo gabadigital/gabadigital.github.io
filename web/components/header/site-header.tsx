@@ -2,9 +2,9 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
-import { CtaButton } from "@/components/header/cta-button";
 import { LocaleLink } from "@/components/i18n/locale-link";
 import { LocaleSwitcher } from "@/components/i18n/locale-switcher";
+import { SwapButton } from "@/components/ui/swap-button";
 import type { Locale } from "@/lib/i18n";
 import type { CaseStudyMeta } from "@/lib/mdx";
 import { getPrimaryNav, getServiceNav, siteConfig } from "@/lib/site";
@@ -28,7 +28,7 @@ export function SiteHeader({
 }: SiteHeaderProps) {
   const [openPanel, setOpenPanel] = useState<Panel>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const servicesId = useId();
   const workId = useId();
   const primaryNav = getPrimaryNav(dictionary);
@@ -42,7 +42,7 @@ export function SiteHeader({
       }
     }
     function onClick(event: MouseEvent) {
-      if (!navRef.current?.contains(event.target as Node)) {
+      if (!headerRef.current?.contains(event.target as Node)) {
         setOpenPanel(null);
       }
     }
@@ -62,7 +62,10 @@ export function SiteHeader({
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)]/70 bg-[color-mix(in_srgb,var(--paper)_88%,transparent)] backdrop-blur-md">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 border-b border-[var(--line)]/70 bg-[color-mix(in_srgb,var(--paper)_88%,transparent)] backdrop-blur-md"
+    >
       <div className="site-shell flex min-h-20 items-center justify-between gap-4 py-5 lg:min-h-24 lg:py-6">
         <LocaleLink
           locale={locale}
@@ -84,7 +87,6 @@ export function SiteHeader({
         </LocaleLink>
 
         <nav
-          ref={navRef}
           className="hidden items-center gap-1 lg:flex"
           aria-label={dictionary.nav.primary}
         >
@@ -125,7 +127,12 @@ export function SiteHeader({
 
         <div className="hidden items-center gap-3 lg:flex">
           <LocaleSwitcher locale={locale} label={dictionary.nav.language} />
-          <CtaButton locale={locale} href="/contact" label={dictionary.nav.startProject} />
+          <SwapButton
+            locale={locale}
+            href="/contact"
+            label={dictionary.nav.startProject}
+            variant="dark"
+          />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
@@ -282,10 +289,11 @@ export function SiteHeader({
               >
                 {dictionary.nav.contact}
               </LocaleLink>
-              <CtaButton
+              <SwapButton
                 locale={locale}
                 href="/contact"
                 label={dictionary.nav.startProject}
+                variant="dark"
                 className="mt-2 justify-center"
                 onClick={() => setMobileOpen(false)}
               />

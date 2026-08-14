@@ -147,6 +147,33 @@ export function caseStudyJsonLd(
   };
 }
 
+export function blogPostJsonLd(
+  input: {
+    title: string;
+    summary: string;
+    slug: string;
+    publishedAt: string;
+    image: string;
+  },
+  locale: Locale = "en",
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: input.title,
+    description: input.summary,
+    url: absoluteUrl(localePath(locale, `/blog/${input.slug}`)),
+    datePublished: input.publishedAt,
+    image: absoluteUrl(input.image),
+    inLanguage: locale,
+    author: {
+      "@type": "Organization",
+      name: siteConfig.legalName,
+      url: siteConfig.url,
+    },
+  };
+}
+
 export function faqJsonLd(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",

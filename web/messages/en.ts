@@ -15,6 +15,7 @@ const en: Dictionary = {
   },
   nav: {
     work: "Work",
+    blog: "Blog",
     services: "Services",
     about: "About",
     contact: "Contact",
@@ -110,6 +111,66 @@ const en: Dictionary = {
     ctaConsultCopy:
       "Strategy, design, and culture-first digital thinking — for brands that need to move fast and hold up under real traffic.",
     ctaCaseStudiesLabel: "View case studies?",
+    heroBasedIn: "Based in",
+    learnMore: "Learn More",
+    approachLabel: "Approach",
+    messageEyebrow: "Coming soon",
+    messageTitleBefore: "Want to train with",
+    messageTitleAccent: "Gabadigital?",
+    messageLede:
+      "We're building an online training school — practical, project-based courses in design, development, and growth for creatives and builders across Africa and the diaspora.",
+    messageCta: "Take the tour",
+    messageFeatures: [
+      {
+        title: "Project-based curriculum",
+        copy: "Learn by shipping real briefs, not just watching lessons.",
+      },
+      {
+        title: "Taught by practitioners",
+        copy: "Courses led by the same team building client work day to day.",
+      },
+      {
+        title: "Cohort-based & remote-friendly",
+        copy: "Join live sessions from Accra, Lagos, Abu Dhabi, or anywhere else.",
+      },
+      {
+        title: "Portfolio-ready output",
+        copy: "Leave with case studies you can actually show clients.",
+      },
+    ],
+    blogEyebrow: "Notes from the studio",
+    blogTitleBefore: "Ideas we’re",
+    blogTitleAccent: "chewing on.",
+    blogLede:
+      "Short, opinionated writing on craft, culture, and building brands that hold up in market.",
+    blogReadMore: "Read article →",
+    allArticles: "All articles →",
+    faqEyebrow: "Questions, answered",
+    faqTitleBefore: "Before you",
+    faqTitleAccent: "reach out.",
+    faqLede: "The things founders and marketing leads ask us most.",
+    faqs: [
+      {
+        question: "How do engagements usually start?",
+        answer:
+          "Most work begins with a short discovery call, then a scoped proposal covering outcomes, timeline, and collaboration model.",
+      },
+      {
+        question: "Do you work with startups and enterprises?",
+        answer:
+          "Yes. We work with startups, SMEs, and larger teams across UAE, Nigeria, Ghana, and remote markets.",
+      },
+      {
+        question: "Can you combine design and engineering?",
+        answer:
+          "Yes. Many engagements include UX, build, and launch support under one studio so handoffs stay short.",
+      },
+      {
+        question: "Do you take retainers?",
+        answer:
+          "Yes — project builds and ongoing retainers for product iteration, content, and growth are both available.",
+      },
+    ],
   },
   roadmap: {
     eyebrow: "How we work",
@@ -170,6 +231,16 @@ const en: Dictionary = {
     metaTitle: "Work & case studies",
     metaDescription:
       "Case studies from Gabadigital — eCommerce, fintech, branding, and product work with measurable outcomes.",
+  },
+  blog: {
+    titleBefore: "Ideas we’re",
+    titleAccent: "chewing on.",
+    lede: "Short, opinionated writing on craft, culture, and building brands that hold up in market.",
+    readMore: "Read article →",
+    backToBlog: "All articles",
+    metaTitle: "Blog",
+    metaDescription:
+      "Notes from Gabadigital on craft, culture, and building brands and products that ship.",
   },
   servicesPage: {
     titleBefore: "Capabilities that move brands —",
@@ -241,6 +312,13 @@ const en: Dictionary = {
     contact: "Contact",
     networks: "Abu Dhabi · Lagos · Accra networks · Remote-friendly",
     rights: "All rights reserved.",
+    newsletter: {
+      title: "Newsletter",
+      lede: "Studio notes, launches, and the occasional hot take — no spam, unsubscribe anytime.",
+      placeholder: "you@company.com",
+      submit: "Subscribe",
+      success: "You’re in — check your inbox.",
+    },
   },
   notFound: {
     title: "This page doesn’t exist.",

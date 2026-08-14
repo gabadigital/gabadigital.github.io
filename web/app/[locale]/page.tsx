@@ -1,14 +1,16 @@
 import Image from "next/image";
+import { HomeBlog } from "@/components/home/home-blog";
 import { HomeCta } from "@/components/home/home-cta";
+import { HomeFaq } from "@/components/home/home-faq";
 import { HomeHero } from "@/components/home/home-hero";
 import { IntroReveal } from "@/components/home/intro-reveal";
 import { Roadmap } from "@/components/home/roadmap";
 import { LocaleLink } from "@/components/i18n/locale-link";
-import { UiFrame } from "@/components/media/ui-frame";
 import { Reveal } from "@/components/motion/reveal";
-import { CaseStudyCard } from "@/components/work/case-study-card";
+import { SwapButton } from "@/components/ui/swap-button";
+import { WorkFeatureCard } from "@/components/work/work-feature-card";
 import { isLocale, type Locale } from "@/lib/i18n";
-import { getFeaturedCaseStudies } from "@/lib/mdx";
+import { getAllBlogPosts, getFeaturedCaseStudies } from "@/lib/mdx";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceNav, siteConfig } from "@/lib/site";
 import { getDictionary } from "@/messages";
@@ -39,6 +41,7 @@ export default async function HomePage({ params }: Props) {
   const t = dictionary.home;
   const featured = getFeaturedCaseStudies();
   const serviceNav = getServiceNav(dictionary);
+  const posts = getAllBlogPosts().slice(0, 3);
 
   return (
     <>
@@ -76,64 +79,6 @@ export default async function HomePage({ params }: Props) {
             </div>
           </Reveal>
         </div>
-
-        <div className="mt-16 grid gap-4 sm:grid-cols-3">
-          {[
-            { src: "/studio/studio.webp", alt: "Open creative studio workspace" },
-            { src: "/studio/workshop.webp", alt: "Team workshop in a modern office" },
-            { src: "/studio/meeting.webp", alt: "Client strategy conversation" },
-          ].map((item, index) => (
-            <Reveal key={item.src} delay={index * 0.04}>
-              <div className="relative aspect-[5/4] overflow-hidden rounded-[1.25rem]">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <p className="mt-4 text-sm text-[var(--ink-muted)]">{t.cultureCaption}</p>
-
-        <div className="mt-20 grid gap-8 lg:grid-cols-3">
-          {[
-            {
-              src: "/work/retail-ui.webp",
-              label: dictionary.services["ecommerce-development"].label,
-              href: "/work/retail-commerce-replatform",
-            },
-            {
-              src: "/work/fintech-ui.webp",
-              label: dictionary.services["mobile-app-development"].label,
-              href: "/work/fintech-onboarding-app",
-            },
-            {
-              src: "/work/brand-ui.webp",
-              label: dictionary.services["logo-branding"].label,
-              href: "/work/brand-system-launch",
-            },
-          ].map((item, index) => (
-            <Reveal key={item.href} delay={index * 0.05}>
-              <LocaleLink
-                locale={locale}
-                href={item.href}
-                className="group block cursor-pointer"
-              >
-                <UiFrame
-                  src={item.src}
-                  alt={item.label}
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
-                <p className="mt-4 text-lg font-medium text-[var(--ink)] transition-colors duration-200 group-hover:text-[var(--teal-deep)]">
-                  {item.label} →
-                </p>
-              </LocaleLink>
-            </Reveal>
-          ))}
-        </div>
       </section>
 
       <section className="border-y border-[var(--line)] bg-white">
@@ -156,19 +101,75 @@ export default async function HomePage({ params }: Props) {
             </LocaleLink>
           </Reveal>
 
-          <div className="mt-16 grid gap-10 lg:grid-cols-2 lg:gap-12">
+          <div className="mt-16 flex flex-col gap-8">
             {featured.map((study, index) => (
-              <Reveal key={study.slug} delay={index * 0.05}>
-                <CaseStudyCard
-                  study={study}
-                  locale={locale}
-                  readLabel={dictionary.work.readCaseStudy}
-                  priority={index === 0}
-                />
-              </Reveal>
+              <div
+                key={study.slug}
+                className="sticky"
+                style={{ top: `calc(6.5rem + ${index * 1.25}rem)`, zIndex: index + 1 }}
+              >
+                <Reveal delay={index * 0.05}>
+                  <WorkFeatureCard
+                    study={study}
+                    index={index}
+                    locale={locale}
+                    approachLabel={t.approachLabel}
+                    learnMoreLabel={t.learnMore}
+                    priority={index === 0}
+                  />
+                </Reveal>
+              </div>
             ))}
           </div>
         </div>
+      </section>
+
+      <HomeBlog
+        locale={locale}
+        posts={posts}
+        eyebrow={t.blogEyebrow}
+        titleBefore={t.blogTitleBefore}
+        titleAccent={t.blogTitleAccent}
+        lede={t.blogLede}
+        readLabel={t.blogReadMore}
+        allArticlesLabel={t.allArticles}
+      />
+
+      <section className="site-shell section-y">
+        <Reveal className="mx-auto flex max-w-xl flex-col items-center gap-5 text-center">
+          <p className="text-sm font-semibold uppercase tracking-wide text-[var(--teal-deep)]">
+            {t.messageEyebrow}
+          </p>
+          <h2 className="display-lg">
+            {t.messageTitleBefore}{" "}
+            <span className="italic-accent text-[var(--teal-deep)]">{t.messageTitleAccent}</span>
+          </h2>
+          <p className="lede">{t.messageLede}</p>
+          <SwapButton locale={locale} href="/contact" label={t.messageCta} variant="dark" />
+        </Reveal>
+
+        <Reveal delay={0.06} className="mt-14">
+          <div className="grid gap-x-14 gap-y-10 rounded-[2rem] bg-[var(--teal-soft)] p-8 sm:grid-cols-2 sm:p-12">
+            {t.messageFeatures.map((feature) => (
+              <div key={feature.title} className="flex items-start gap-4">
+                <span className="flex h-[50px] w-[50px] shrink-0 items-center justify-center bg-[var(--teal)] text-[var(--teal-deep)]">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M 2 5 L 9 2 L 15 5 L 21.303 2.299 C 21.557 2.19 21.851 2.307 21.96 2.561 C 21.986 2.624 22 2.691 22 2.758 L 22 19 L 15 22 L 9 19 L 2.697 21.701 C 2.443 21.81 2.149 21.692 2.04 21.439 C 2.014 21.377 2 21.309 2 21.242 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-lg font-semibold text-[var(--ink)]">{feature.title}</p>
+                  <p className="mt-2 text-base leading-relaxed text-[var(--ink-muted)]">
+                    {feature.copy}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       <section className="site-shell section-y">
@@ -218,6 +219,14 @@ export default async function HomePage({ params }: Props) {
         titleAccent={dictionary.roadmap.titleAccent}
         lede={dictionary.roadmap.lede}
         steps={dictionary.roadmap.steps}
+      />
+
+      <HomeFaq
+        eyebrow={t.faqEyebrow}
+        titleBefore={t.faqTitleBefore}
+        titleAccent={t.faqTitleAccent}
+        lede={t.faqLede}
+        faqs={t.faqs}
       />
 
       <HomeCta locale={locale} dictionary={dictionary} />

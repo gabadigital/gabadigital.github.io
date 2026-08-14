@@ -4,6 +4,7 @@ import matter from "gray-matter";
 
 const workDirectory = path.join(process.cwd(), "content/work");
 const servicesDirectory = path.join(process.cwd(), "content/services");
+const blogDirectory = path.join(process.cwd(), "content/blog");
 
 export type Outcome = {
   label: string;
@@ -39,6 +40,18 @@ export type ServiceMeta = {
 };
 
 export type ServiceDoc = ServiceMeta & {
+  content: string;
+};
+
+export type BlogPostMeta = {
+  title: string;
+  slug: string;
+  summary: string;
+  coverImage: string;
+  publishedAt: string;
+};
+
+export type BlogPost = BlogPostMeta & {
   content: string;
 };
 
@@ -91,4 +104,25 @@ export function getServiceBySlug(slug: string): ServiceDoc | undefined {
 
 export function getAllServiceSlugs(): string[] {
   return getAllServices().map((service) => service.slug);
+}
+
+export function getAllBlogPosts(): BlogPost[] {
+  return readMdxFiles(blogDirectory)
+    .map((filename) => {
+      const raw = fs.readFileSync(path.join(blogDirectory, filename), "utf8");
+      const { data, content } = matter(raw);
+      return { ...(data as BlogPostMeta), content };
+    })
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    );
+}
+
+export function getBlogPostBySlug(slug: string): BlogPost | undefined {
+  return getAllBlogPosts().find((post) => post.slug === slug);
+}
+
+export function getAllBlogSlugs(): string[] {
+  return getAllBlogPosts().map((post) => post.slug);
 }
