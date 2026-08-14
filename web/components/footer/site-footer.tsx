@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { NewsletterForm } from "@/components/footer/newsletter-form";
 import { LocaleLink } from "@/components/i18n/locale-link";
 import type { Locale } from "@/lib/i18n";
 import { getPrimaryNav, getServiceNav, siteConfig } from "@/lib/site";
@@ -66,7 +67,7 @@ export function SiteFooter({
           </div>
         </div>
 
-        <div className="mt-16 grid gap-14 sm:grid-cols-3">
+        <div className="mt-16 grid gap-14 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.2fr] lg:gap-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-white/50">
               {dictionary.footer.studio}
@@ -122,17 +123,10 @@ export function SiteFooter({
               ))}
             </ul>
           </div>
-        </div>
 
-        <div className="mt-16 grid gap-10 border-t border-white/10 pt-12 sm:grid-cols-3">
-          {siteConfig.locations.map((location) => (
-            <div key={location.city}>
-              <p className="text-lg font-semibold text-white">
-                {location.city}, {location.region}
-              </p>
-              <p className="mt-2 text-sm text-white/60">{location.area}</p>
-            </div>
-          ))}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <NewsletterForm labels={dictionary.footer.newsletter} />
+          </div>
         </div>
       </div>
 

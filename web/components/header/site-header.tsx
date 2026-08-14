@@ -28,7 +28,7 @@ export function SiteHeader({
 }: SiteHeaderProps) {
   const [openPanel, setOpenPanel] = useState<Panel>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const servicesId = useId();
   const workId = useId();
   const primaryNav = getPrimaryNav(dictionary);
@@ -42,7 +42,7 @@ export function SiteHeader({
       }
     }
     function onClick(event: MouseEvent) {
-      if (!navRef.current?.contains(event.target as Node)) {
+      if (!headerRef.current?.contains(event.target as Node)) {
         setOpenPanel(null);
       }
     }
@@ -62,7 +62,10 @@ export function SiteHeader({
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)]/70 bg-[color-mix(in_srgb,var(--paper)_88%,transparent)] backdrop-blur-md">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 border-b border-[var(--line)]/70 bg-[color-mix(in_srgb,var(--paper)_88%,transparent)] backdrop-blur-md"
+    >
       <div className="site-shell flex min-h-20 items-center justify-between gap-4 py-5 lg:min-h-24 lg:py-6">
         <LocaleLink
           locale={locale}
@@ -84,7 +87,6 @@ export function SiteHeader({
         </LocaleLink>
 
         <nav
-          ref={navRef}
           className="hidden items-center gap-1 lg:flex"
           aria-label={dictionary.nav.primary}
         >

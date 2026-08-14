@@ -16,6 +16,7 @@ const fr: Dictionary = {
   },
   nav: {
     work: "Projets",
+    blog: "Blog",
     services: "Services",
     about: "À propos",
     contact: "Contact",
@@ -138,6 +139,39 @@ const fr: Dictionary = {
         copy: "Repartez avec des études de cas que vous pouvez vraiment présenter à des clients.",
       },
     ],
+    blogEyebrow: "Notes du studio",
+    blogTitleBefore: "Des idées qu’on",
+    blogTitleAccent: "creuse en ce moment.",
+    blogLede:
+      "Des écrits courts et tranchés sur le craft, la culture, et la construction de marques qui tiennent sur le marché.",
+    blogReadMore: "Lire l’article →",
+    allArticles: "Tous les articles →",
+    faqEyebrow: "Questions fréquentes",
+    faqTitleBefore: "Avant de nous",
+    faqTitleAccent: "contacter.",
+    faqLede: "Ce que les fondateurs et responsables marketing nous demandent le plus.",
+    faqs: [
+      {
+        question: "Comment démarrent les missions en général ?",
+        answer:
+          "La plupart débutent par un court appel de découverte, puis une proposition cadrée couvrant résultats, calendrier et mode de collaboration.",
+      },
+      {
+        question: "Travaillez-vous avec des startups et des grands comptes ?",
+        answer:
+          "Oui. Nous travaillons avec des startups, PME et grandes équipes aux Émirats, au Nigeria, au Ghana et à distance.",
+      },
+      {
+        question: "Pouvez-vous combiner design et développement ?",
+        answer:
+          "Oui. De nombreuses missions incluent UX, build et support de lancement sous un même studio pour des handoffs courts.",
+      },
+      {
+        question: "Prenez-vous des retainers ?",
+        answer:
+          "Oui — missions au projet et retainers continus pour l’itération produit, le contenu et la croissance sont tous deux disponibles.",
+      },
+    ],
   },
   roadmap: {
     eyebrow: "Comment on travaille",
@@ -198,6 +232,16 @@ const fr: Dictionary = {
     metaTitle: "Projets & études de cas",
     metaDescription:
       "Études de cas Gabadigital — e-commerce, fintech, branding et produit avec des résultats mesurables.",
+  },
+  blog: {
+    titleBefore: "Des idées qu’on",
+    titleAccent: "creuse en ce moment.",
+    lede: "Des écrits courts et tranchés sur le craft, la culture, et la construction de marques qui tiennent sur le marché.",
+    readMore: "Lire l’article →",
+    backToBlog: "Tous les articles",
+    metaTitle: "Blog",
+    metaDescription:
+      "Notes de Gabadigital sur le craft, la culture, et la construction de marques et produits qui se livrent.",
   },
   servicesPage: {
     titleBefore: "Des capacités qui font bouger les marques —",
@@ -269,6 +313,13 @@ const fr: Dictionary = {
     contact: "Contact",
     networks: "Abu Dhabi · Lagos · Accra · À distance",
     rights: "Tous droits réservés.",
+    newsletter: {
+      title: "Newsletter",
+      lede: "Notes du studio, lancements, et parfois un coup de gueule — pas de spam, désabonnement à tout moment.",
+      placeholder: "vous@entreprise.com",
+      submit: "S’abonner",
+      success: "C’est fait — vérifiez votre boîte mail.",
+    },
   },
   notFound: {
     title: "Cette page n’existe pas.",

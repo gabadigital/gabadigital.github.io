@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { HomeBlog } from "@/components/home/home-blog";
 import { HomeCta } from "@/components/home/home-cta";
+import { HomeFaq } from "@/components/home/home-faq";
 import { HomeHero } from "@/components/home/home-hero";
 import { IntroReveal } from "@/components/home/intro-reveal";
 import { Roadmap } from "@/components/home/roadmap";
@@ -8,7 +10,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { SwapButton } from "@/components/ui/swap-button";
 import { WorkFeatureCard } from "@/components/work/work-feature-card";
 import { isLocale, type Locale } from "@/lib/i18n";
-import { getFeaturedCaseStudies } from "@/lib/mdx";
+import { getAllBlogPosts, getFeaturedCaseStudies } from "@/lib/mdx";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceNav, siteConfig } from "@/lib/site";
 import { getDictionary } from "@/messages";
@@ -39,6 +41,7 @@ export default async function HomePage({ params }: Props) {
   const t = dictionary.home;
   const featured = getFeaturedCaseStudies();
   const serviceNav = getServiceNav(dictionary);
+  const posts = getAllBlogPosts().slice(0, 3);
 
   return (
     <>
@@ -120,6 +123,17 @@ export default async function HomePage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      <HomeBlog
+        locale={locale}
+        posts={posts}
+        eyebrow={t.blogEyebrow}
+        titleBefore={t.blogTitleBefore}
+        titleAccent={t.blogTitleAccent}
+        lede={t.blogLede}
+        readLabel={t.blogReadMore}
+        allArticlesLabel={t.allArticles}
+      />
 
       <section className="site-shell section-y">
         <Reveal className="mx-auto flex max-w-xl flex-col items-center gap-5 text-center">
@@ -205,6 +219,14 @@ export default async function HomePage({ params }: Props) {
         titleAccent={dictionary.roadmap.titleAccent}
         lede={dictionary.roadmap.lede}
         steps={dictionary.roadmap.steps}
+      />
+
+      <HomeFaq
+        eyebrow={t.faqEyebrow}
+        titleBefore={t.faqTitleBefore}
+        titleAccent={t.faqTitleAccent}
+        lede={t.faqLede}
+        faqs={t.faqs}
       />
 
       <HomeCta locale={locale} dictionary={dictionary} />

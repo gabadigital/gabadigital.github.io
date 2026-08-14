@@ -49,15 +49,19 @@ export function HomeHero({
           <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 shadow-[0_40px_120px_rgba(0,0,0,0.45)]">
             <div className="relative aspect-[4/5]">
               <Image
-                src="/hero/founder-portrait.webp"
-                alt="Smiling Gabadigital team lead"
+                src="/hero/kim-carpenter.webp"
+                alt="Gabadigital client laughing during a studio shoot"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 44vw"
                 className="object-cover"
               />
               <div
-                className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(11,20,32,0)_55%,rgba(6,12,20,0.55)_100%)]"
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(160deg,#0c1524_0%,#0b3d40_52%,#123047_100%)] mix-blend-color"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(11,20,32,0)_45%,rgba(6,12,20,0.6)_100%)]"
                 aria-hidden
               />
             </div>

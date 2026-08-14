@@ -42,9 +42,16 @@ export function ButtonContent({ label, variant }: { label: string; variant: Vari
         </span>
       </span>
       <span
-        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${iconTone[variant]}`}
+        className={`flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full ${iconTone[variant]}`}
       >
-        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 20 20"
+          fill="none"
+          aria-hidden="true"
+          className="transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:rotate-45"
+        >
           <path
             d="M5 15L15 5M15 5H7M15 5V13"
             stroke="currentColor"

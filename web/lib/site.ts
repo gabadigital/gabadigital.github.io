@@ -66,6 +66,7 @@ export const serviceSlugs: ServiceSlug[] = [
 export function getPrimaryNav(dictionary: Dictionary) {
   return [
     { label: dictionary.nav.work, href: "/work" },
+    { label: dictionary.nav.blog, href: "/blog" },
     { label: dictionary.nav.services, href: "/services" },
     { label: dictionary.nav.about, href: "/about" },
     { label: dictionary.nav.contact, href: "/contact" },

@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
 import { locales, localePath } from "@/lib/i18n";
-import { getAllCaseStudySlugs, getAllServiceSlugs } from "@/lib/mdx";
+import { getAllBlogSlugs, getAllCaseStudySlugs, getAllServiceSlugs } from "@/lib/mdx";
 import { absoluteUrl } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["", "/work", "/services", "/about", "/contact"];
+  const paths = ["", "/work", "/blog", "/services", "/about", "/contact"];
 
   const staticRoutes = locales.flatMap((locale) =>
     paths.map((path) => ({
@@ -33,5 +33,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...staticRoutes, ...workRoutes, ...serviceRoutes];
+  const blogRoutes = locales.flatMap((locale) =>
+    getAllBlogSlugs().map((slug) => ({
+      url: absoluteUrl(localePath(locale, `/blog/${slug}`)),
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
+  );
+
+  return [...staticRoutes, ...workRoutes, ...serviceRoutes, ...blogRoutes];
 }
