@@ -68,6 +68,15 @@ export type Dictionary = {
     ctaConsultLabel: string;
     ctaConsultCopy: string;
     ctaCaseStudiesLabel: string;
+    heroBasedIn: string;
+    learnMore: string;
+    approachLabel: string;
+    messageEyebrow: string;
+    messageTitleBefore: string;
+    messageTitleAccent: string;
+    messageLede: string;
+    messageCta: string;
+    messageFeatures: { title: string; copy: string }[];
   };
   roadmap: {
     eyebrow: string;

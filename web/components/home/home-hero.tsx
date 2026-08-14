@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { LocaleLink } from "@/components/i18n/locale-link";
+import { LocationBadge } from "@/components/home/location-badge";
 import { Reveal } from "@/components/motion/reveal";
+import { SwapButton } from "@/components/ui/swap-button";
 import type { Locale } from "@/lib/i18n";
+import { siteConfig } from "@/lib/site";
 import type { Dictionary } from "@/messages";
 
 export function HomeHero({
@@ -38,44 +40,45 @@ export function HomeHero({
             {t.heroLede}
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
-            <LocaleLink
-              locale={locale}
-              href="/work"
-              className="inline-flex cursor-pointer rounded-full bg-white px-8 py-4 text-base font-semibold text-[var(--ink)] transition-colors duration-200 hover:bg-[#ebfeff]"
-            >
-              {t.seeWork}
-            </LocaleLink>
-            <LocaleLink
-              locale={locale}
-              href="/contact"
-              className="inline-flex cursor-pointer rounded-full border border-white/25 px-8 py-4 text-base font-semibold text-white transition-colors duration-200 hover:border-white/50"
-            >
-              {t.startProject}
-            </LocaleLink>
+            <SwapButton locale={locale} href="/work" label={t.seeWork} variant="solid" />
+            <SwapButton locale={locale} href="/contact" label={t.startProject} variant="outline" />
           </div>
         </Reveal>
 
         <Reveal delay={0.08} className="relative">
-          <div className="overflow-hidden rounded-[1.5rem] border border-white/15 bg-[#0f172a] shadow-[0_40px_120px_rgba(0,0,0,0.45)]">
-            <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" aria-hidden />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" aria-hidden />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" aria-hidden />
-              <span className="ml-3 text-[11px] text-white/50">
-                retail · commerce console
-              </span>
-            </div>
-            <div className="relative aspect-[16/10]">
+          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 shadow-[0_40px_120px_rgba(0,0,0,0.45)]">
+            <div className="relative aspect-[4/5]">
               <Image
-                src="/work/retail-ui.webp"
-                alt="Retail commerce product UI — catalog, metrics, and checkout console"
+                src="/hero/founder-portrait.webp"
+                alt="Smiling Gabadigital team lead"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 56vw"
-                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 44vw"
+                className="object-cover"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(11,20,32,0)_55%,rgba(6,12,20,0.55)_100%)]"
+                aria-hidden
               />
             </div>
           </div>
+
+          {siteConfig.locations.map((location, index) => (
+            <LocationBadge
+              key={location.city}
+              city={location.city}
+              prefix={t.heroBasedIn}
+              delay={index * 0.6}
+              className={
+                [
+                  "-left-4 top-8 sm:-left-8",
+                  "-right-2 top-[46%] sm:-right-6",
+                  "-left-2 bottom-8 sm:-left-6",
+                ][index]
+              }
+            />
+          ))}
+
           <p className="mt-4 text-sm text-white/45">{t.heroCaption}</p>
         </Reveal>
       </div>

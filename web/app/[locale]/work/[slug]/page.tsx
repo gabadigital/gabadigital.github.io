@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
-import { LocaleLink } from "@/components/i18n/locale-link";
 import { MdxContent } from "@/components/mdx/mdx-content";
 import { UiFrame } from "@/components/media/ui-frame";
 import { JsonLd } from "@/components/seo/json-ld";
+import { SwapButton } from "@/components/ui/swap-button";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 import { getAllCaseStudySlugs, getCaseStudyBySlug } from "@/lib/mdx";
 import {
@@ -138,13 +138,13 @@ export default async function CaseStudyPage({ params }: Props) {
                 </ul>
               </div>
             ) : null}
-            <LocaleLink
+            <SwapButton
               locale={locale}
               href="/contact"
-              className="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-[var(--teal-deep)] px-5 py-3 font-semibold text-white"
-            >
-              {dictionary.nav.startProject}
-            </LocaleLink>
+              label={dictionary.nav.startProject}
+              variant="dark"
+              className="w-full justify-center"
+            />
           </aside>
         </div>
       </article>

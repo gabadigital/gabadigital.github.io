@@ -111,6 +111,33 @@ const fr: Dictionary = {
     ctaConsultCopy:
       "Stratégie, design et pensée digitale à impact culturel — pour des marques qui doivent avancer vite et tenir face au vrai trafic.",
     ctaCaseStudiesLabel: "Voir les études de cas ?",
+    heroBasedIn: "Basé à",
+    learnMore: "En savoir plus",
+    approachLabel: "Approche",
+    messageEyebrow: "Bientôt disponible",
+    messageTitleBefore: "Envie de vous former avec",
+    messageTitleAccent: "Gabadigital ?",
+    messageLede:
+      "Nous préparons une école de formation en ligne — des cours pratiques et concrets en design, développement et croissance, pour les créatifs et bâtisseurs d’Afrique et de la diaspora.",
+    messageCta: "Faire le tour",
+    messageFeatures: [
+      {
+        title: "Programme par projets",
+        copy: "Apprenez en livrant de vrais briefs, pas seulement en regardant des vidéos.",
+      },
+      {
+        title: "Enseigné par des praticiens",
+        copy: "Des cours animés par l’équipe qui livre le travail client au quotidien.",
+      },
+      {
+        title: "En cohorte et à distance",
+        copy: "Rejoignez les sessions en direct depuis Accra, Lagos, Abou Dabi, ou d’ailleurs.",
+      },
+      {
+        title: "Un portfolio prêt à montrer",
+        copy: "Repartez avec des études de cas que vous pouvez vraiment présenter à des clients.",
+      },
+    ],
   },
   roadmap: {
     eyebrow: "Comment on travaille",

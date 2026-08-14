@@ -16,14 +16,19 @@ export const siteConfig = {
   ],
   locations: [
     {
-      city: "Abu Dhabi",
-      region: "United Arab Emirates",
-      area: "Tourist Centre",
+      city: "Accra",
+      region: "Ghana",
+      area: "Serving West Africa remotely & on-site",
     },
     {
       city: "Lagos",
       region: "Nigeria",
       area: "Serving West Africa remotely & on-site",
+    },
+    {
+      city: "Abu Dhabi",
+      region: "United Arab Emirates",
+      area: "Tourist Centre",
     },
   ],
   social: {

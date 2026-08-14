@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { LocaleLink } from "@/components/i18n/locale-link";
 import { MdxContent } from "@/components/mdx/mdx-content";
 import { JsonLd } from "@/components/seo/json-ld";
+import { SwapButton } from "@/components/ui/swap-button";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 import { getAllServiceSlugs, getServiceBySlug } from "@/lib/mdx";
 import {
@@ -114,20 +114,20 @@ export default async function ServicePage({ params }: Props) {
               ))}
             </ul>
           </div>
-          <LocaleLink
+          <SwapButton
             locale={locale}
             href="/contact"
-            className="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-[var(--teal-deep)] px-5 py-3 font-semibold text-white"
-          >
-            {dictionary.servicesPage.discuss}
-          </LocaleLink>
-          <LocaleLink
+            label={dictionary.servicesPage.discuss}
+            variant="dark"
+            className="w-full justify-center"
+          />
+          <SwapButton
             locale={locale}
             href="/work"
-            className="inline-flex w-full cursor-pointer items-center justify-center rounded-full border border-[var(--line)] bg-white px-5 py-3 font-semibold"
-          >
-            {dictionary.servicesPage.relatedWork}
-          </LocaleLink>
+            label={dictionary.servicesPage.relatedWork}
+            variant="ghost"
+            className="w-full justify-center"
+          />
         </aside>
       </article>
     </>

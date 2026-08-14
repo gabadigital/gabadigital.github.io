@@ -110,6 +110,33 @@ const en: Dictionary = {
     ctaConsultCopy:
       "Strategy, design, and culture-first digital thinking — for brands that need to move fast and hold up under real traffic.",
     ctaCaseStudiesLabel: "View case studies?",
+    heroBasedIn: "Based in",
+    learnMore: "Learn More",
+    approachLabel: "Approach",
+    messageEyebrow: "Coming soon",
+    messageTitleBefore: "Want to train with",
+    messageTitleAccent: "Gabadigital?",
+    messageLede:
+      "We're building an online training school — practical, project-based courses in design, development, and growth for creatives and builders across Africa and the diaspora.",
+    messageCta: "Take the tour",
+    messageFeatures: [
+      {
+        title: "Project-based curriculum",
+        copy: "Learn by shipping real briefs, not just watching lessons.",
+      },
+      {
+        title: "Taught by practitioners",
+        copy: "Courses led by the same team building client work day to day.",
+      },
+      {
+        title: "Cohort-based & remote-friendly",
+        copy: "Join live sessions from Accra, Lagos, Abu Dhabi, or anywhere else.",
+      },
+      {
+        title: "Portfolio-ready output",
+        copy: "Leave with case studies you can actually show clients.",
+      },
+    ],
   },
   roadmap: {
     eyebrow: "How we work",

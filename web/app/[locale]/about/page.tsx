@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { LocaleLink } from "@/components/i18n/locale-link";
 import { JsonLd } from "@/components/seo/json-ld";
+import { SwapButton } from "@/components/ui/swap-button";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { getDictionary } from "@/messages";
@@ -102,13 +102,13 @@ export default async function AboutPage({ params }: Props) {
           </ul>
         </section>
 
-        <LocaleLink
+        <SwapButton
           locale={locale}
           href="/contact"
-          className="mt-10 inline-flex cursor-pointer rounded-full bg-[var(--teal-deep)] px-6 py-3 font-semibold text-white"
-        >
-          {t.cta}
-        </LocaleLink>
+          label={t.cta}
+          variant="dark"
+          className="mt-10"
+        />
       </section>
     </>
   );

@@ -2,9 +2,9 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
-import { CtaButton } from "@/components/header/cta-button";
 import { LocaleLink } from "@/components/i18n/locale-link";
 import { LocaleSwitcher } from "@/components/i18n/locale-switcher";
+import { SwapButton } from "@/components/ui/swap-button";
 import type { Locale } from "@/lib/i18n";
 import type { CaseStudyMeta } from "@/lib/mdx";
 import { getPrimaryNav, getServiceNav, siteConfig } from "@/lib/site";
@@ -125,7 +125,12 @@ export function SiteHeader({
 
         <div className="hidden items-center gap-3 lg:flex">
           <LocaleSwitcher locale={locale} label={dictionary.nav.language} />
-          <CtaButton locale={locale} href="/contact" label={dictionary.nav.startProject} />
+          <SwapButton
+            locale={locale}
+            href="/contact"
+            label={dictionary.nav.startProject}
+            variant="dark"
+          />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
@@ -282,10 +287,11 @@ export function SiteHeader({
               >
                 {dictionary.nav.contact}
               </LocaleLink>
-              <CtaButton
+              <SwapButton
                 locale={locale}
                 href="/contact"
                 label={dictionary.nav.startProject}
+                variant="dark"
                 className="mt-2 justify-center"
                 onClick={() => setMobileOpen(false)}
               />
